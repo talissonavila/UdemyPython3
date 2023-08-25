@@ -1,0 +1,3 @@
+Padrões de Projeto - Soluções Reutilizáveis de Software Orientado a Objetos
+PHP Programando com Orientação a Objetos
+Python fluente

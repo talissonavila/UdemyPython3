@@ -1,0 +1,2 @@
+Sucess: PocoPhone 5 esta ligado. (Smartphone)
+Error: iPhone 6 esta desligado. (Smartphone)
