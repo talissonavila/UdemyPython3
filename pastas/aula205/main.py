@@ -45,8 +45,12 @@ sql_command = (
 
 
 if __name__ == '__main__':
+    # cursor.execute(
+    #     f'DELETE FROM {TABLE_NAME} WHERE weight > "82"'
+    # )
+
     cursor.execute(
-        f'DELETE FROM {TABLE_NAME} where weight > "82"'
+        f'UPDATE {TABLE_NAME} SET name="Anonymous", weight=0.01 WHERE id = 6'
     )
     connection.commit()
 
