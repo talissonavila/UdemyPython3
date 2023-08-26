@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+__localcode
+.DS_Store
+chromedriver
+mysql_206
 
 # C extensions
 *.so
