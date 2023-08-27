@@ -99,3 +99,37 @@ with connection:
         print(f'\nComando sql = {sql}. Data = {data4}')
         print(f'Resultados = {result}')
     connection.commit()
+
+    # Read with select command
+    with connection.cursor() as cursor:
+        # input_lower_id = input(f'Digit the lower id: ')
+        # input_bigger_id = input(f'Digit the bigger id: ')
+        input_lower_id = 2
+        input_bigger_id = 3
+        sql = (
+            f'SELECT * FROM {TABLE_NAME} '
+            'WHERE id BETWEEN %s AND %s '
+        )
+        cursor.execute(sql, (input_lower_id, input_bigger_id))
+
+        print(f'\nComando sql  = {cursor.mogrify(sql, (input_lower_id, input_bigger_id))}')
+        select_all = cursor.fetchall()
+        print(f'Resultado = {select_all}\n')
+
+        for row_ in select_all:
+            print(f'Linha = {row_}')
+        print()
+
+    # Delete sql command
+    with connection.cursor() as cursor:
+        sql = (
+            f'DELETE FROM {TABLE_NAME} '
+            'WHERE id = 5'
+        )
+        cursor.execute(sql)
+        connection.commit()
+
+        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')
+
+        for row_ in cursor.fetchall():
+            print(row_)
