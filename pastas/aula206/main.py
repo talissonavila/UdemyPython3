@@ -13,6 +13,7 @@ connection = pymysql.connect(
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
     charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor,
 )
 
 with connection:
@@ -104,6 +105,7 @@ with connection:
     with connection.cursor() as cursor:
         # input_lower_id = input(f'Digit the lower id: ')
         # input_bigger_id = input(f'Digit the bigger id: ')
+
         input_lower_id = 2
         input_bigger_id = 3
         sql = (
@@ -133,3 +135,20 @@ with connection:
 
         for row_ in cursor.fetchall():
             print(row_)
+        print()
+
+    # Update sql command
+    with connection.cursor() as cursor:
+        sql = (
+            f'UPDATE {TABLE_NAME} '
+            'SET nome=%s, idade=%s '
+            'WHERE id = %s'
+        )
+        cursor.execute(sql, ("Magela", 89, 7))
+        connection.commit()
+
+        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')
+
+        for row_ in cursor.fetchall():
+            print(row_['nome'])
+    connection.commit()
