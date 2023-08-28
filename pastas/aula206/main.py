@@ -4,6 +4,7 @@ import os
 
 
 TABLE_NAME = 'customers'
+CURRENT_CURSOR = pymysql.cursors.DictCursor
 
 dotenv.load_dotenv()
 
@@ -13,7 +14,7 @@ connection = pymysql.connect(
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
     charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor,
+    cursorclass=CURRENT_CURSOR,
 )
 
 with connection:
@@ -144,11 +145,32 @@ with connection:
             'SET nome=%s, idade=%s '
             'WHERE id = %s'
         )
-        cursor.execute(sql, ("Magela", 89, 7))
         connection.commit()
+        cursor.execute(sql, ("Magela", 89, 7))
+        result_from_select = cursor.execute(f'SELECT * FROM {TABLE_NAME} ')
 
-        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')
-
+        print('For 1: ')
         for row_ in cursor.fetchall():
-            print(row_['nome'])
+            print(row_)
+
+        print('result_from_select =', result_from_select)
+        print('rowcount', cursor.rowcount)
+
+        insert = (
+            f'INSERT INTO {TABLE_NAME} (nome, idade) VALUES (%(name)s, %(age)s) '
+        )
+        data_ = (
+            {"name": 'Python', "age": 9.5, },
+            {"name": 'Java', "age": 8.2, },
+            {"name": 'C++', "age": 6.2, },
+        )
+        result_ = cursor.executemany(insert, data_)
+
+        cursor.execute(
+            f'SELECT id FROM {TABLE_NAME} ORDER BY id DESC LIMIT 1'
+        )
+        last_id_from_select = cursor.fetchone()
+        print('lastrowid', cursor.lastrowid)
+        print('ultimo id na mão', last_id_from_select['id'])
+        print('row number', cursor.rownumber)
     connection.commit()
