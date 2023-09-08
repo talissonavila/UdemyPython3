@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+ # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,6 +6,7 @@ __localcode
 .DS_Store
 chromedriver
 mysql_206
+ola_django/static_files
 
 # C extensions
 *.so
