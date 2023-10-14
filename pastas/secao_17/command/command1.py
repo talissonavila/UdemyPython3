@@ -122,5 +122,3 @@ if __name__ == '__main__':
     remote_controller.global_undo()
     remote_controller.global_undo()
     remote_controller.global_undo()
-
-
