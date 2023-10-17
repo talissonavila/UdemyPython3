@@ -7,7 +7,7 @@ __localcode
 chromedriver
 mysql_206
 ola_django/static_files
-data_mysql_dontpush/
+mysql_cursos/
 
 # C extensions
 *.so
