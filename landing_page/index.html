@@ -16,19 +16,23 @@
 </head>
 
 <body class="main-bg">
+
+    <input id="close-menu" class="close-menu" type="checkbox" aria-label="Close menu" role="button">
+    <label class="close-menu-label" for="close-menu" title="close menu"></label>
     <aside class="menu white-bg">
         <div class="main-content menu-content">
-            <h1>
+            <h1 onclick="getElementById('close-menu').checked = false;">
                 <a href="#home">LOGO</a>
             </h1>
 
             <nav>
-                <ul>
+                <ul onclick="getElementById('close-menu').checked = false;">
                     <li><a href="#intro">intro</a></li>
                     <li><a href="#grid-one">grid one</a></li>
                     <li><a href="#gallery">gallery</a></li>
                     <li><a href="#grid-two">grid two</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="#pricing">pricing</a></li>
+                    <li><a href="#contact">contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -84,7 +88,9 @@
                 </article>
                 <article>
                     <h3>teste 3</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti repellendus deserunt assumenda nesciunt! Incidunt possimus impedit ullam, et ab laboriosam enim dignissimos eos, nihil eius debitis harum! Perspiciatis, harum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti repellendus deserunt
+                        assumenda nesciunt! Incidunt possimus impedit ullam, et ab laboriosam enim dignissimos eos,
+                        nihil eius debitis harum! Perspiciatis, harum!</p>
                 </article>
             </div>
         </div>
@@ -136,12 +142,122 @@
                 </article>
                 <article>
                     <h3>teste 3</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti repellendus deserunt assumenda nesciunt! Incidunt possimus impedit ullam, et ab laboriosam enim dignissimos eos, nihil eius debitis harum! Perspiciatis, harum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti repellendus deserunt
+                        assumenda nesciunt! Incidunt possimus impedit ullam, et ab laboriosam enim dignissimos eos,
+                        nihil eius debitis harum! Perspiciatis, harum!</p>
                 </article>
             </div>
         </div>
     </section>
 
+    <section id="pricing" class="white-bg section">
+        <div class="main-content top3-content">
+            <h2>Pricing</h2>
+            <p>The release of Apple Silicon-based Bacs ate the end of last year generated a flurry of news coverage and
+                some surprises at the machine's perfomance. This post details some background information on the
+                experience of porting Firefox to run natievely on these CPUs.</p>
+
+            <div class="responsive-table">
+                <table>
+                    <caption>Pricing table</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Title 1</th>
+                            <th>Title 2</th>
+                            <th>Title 3</th>
+                            <th>Title 4</th>
+                            <th>Title 5</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Content title 1 row 1</td>
+                            <td>Content title 2 row 1</td>
+                            <td>Content title 3 row 1</td>
+                            <td>Content title 4 row 1</td>
+                            <td>Content title 5 row 1</td>
+                        </tr>
+                        <tr>
+                            <td>Content title 1 row 2</td>
+                            <td>Content title 2 row 2</td>
+                            <td>Content title 3 row 2</td>
+                            <td>Content title 4 row 2</td>
+                            <td>Content title 5 row 2</td>
+                        </tr>
+                        <tr>
+                            <td>Content title 1 row 3</td>
+                            <td>Content title 2 row 3</td>
+                            <td>Content title 3 row 3</td>
+                            <td>Content title 4 row 3</td>
+                            <td>Content title 5 row 3</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>table footer</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="intro main-bg section">
+        <div class="main-content intro-content">
+            <div class="intro-text-content">
+                <h2>Contact us</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur recusandae cupiditate, eos atque ipsum vitae quam nulla eligendi voluptatum quod explicabo cum error assumenda molestiae numquam, magnam repellendus corrupti architecto.</p>
+            </div>
+            <div class="intro-img">
+                <img src="assets/images/contact-us-image.svg"
+                    alt="Image with text 'contact us' with a old style cable phone, by it side, email adress, phone number and location.">
+            </div>
+
+
+            <div class="contact-form">
+                <fieldset class="form-grid">
+                    <legend>Contact us</legend>
+
+                    <div class="form-group">
+                        <label for="first-name">First name</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="Insert here your first name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last-name">Last name</label>
+                        <input type="text" name="last-name" id="last-name" placeholder="Insert here your last name">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Insert here your e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message us</label>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave here your message"></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit">Send message</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+
+    <footer class="href-footer">
+        <p>Made by <a rel="nofollow" target="_blank" href="https://www.linkedin.com/in/talissonavila/">Talisson Avila</a></p>
+    </footer>
+
+    <a class="move-to-top" href="#">↑</a>
 
 </body>
 
