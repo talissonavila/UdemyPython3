@@ -8,4 +8,3 @@ expressao_reg = r'<(?:p|div)>(.*?)<\/(?:p|div)>'
 data_regex = re.findall(expressao_reg, texto)
 
 print(data_regex)
-
